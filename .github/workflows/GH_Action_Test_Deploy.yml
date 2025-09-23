@@ -1,11 +1,9 @@
 name: GH Action Test Deploy
 
-on:
-  push:
-    branches: ['stage']
+on: [push]
 
 jobs:
-  deploy:
+  check-remote-access:
     runs-on: ubuntu-latest
 
     steps:
