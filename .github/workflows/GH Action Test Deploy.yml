@@ -34,4 +34,4 @@ jobs:
             cd ~/www/gh-action-test
             cp ~/apps/env/web/.env.production ~/www/gh-action-test
             cp ~/apps/env/web/.env.sentry-build-plugin ~/www/gh-action-test
-            echo 'Github is here!' > README.md
+            echo 'Github is here!' >> README.md
