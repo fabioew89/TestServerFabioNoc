@@ -7,5 +7,5 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           ssh {{secret.REMOTE_HOST_SSH_USER}}@{{secret.REMOTE_HOST_IPV4}} \
-              -p {{secret.REMOTE_HOST_SSH_PORT}}
+              -p {{secret.REMOTE_HOST_SSH_PORT}} -i {{secret.DEPLOY_KEY}}
       
