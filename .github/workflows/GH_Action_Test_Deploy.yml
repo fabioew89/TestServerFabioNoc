@@ -19,5 +19,5 @@ jobs:
           key: ${{ secrets.REMOTE_PUBLIC_KEY }}
           script: |
             mkdir -p ~/www/gh-action-test
-            cp ~/apps/* ~/www/gh-action-test
+            cp -r ~/apps/* ~/www/gh-action-test
             echo 'Github is here!' >> README.md
