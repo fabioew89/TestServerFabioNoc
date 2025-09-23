@@ -10,15 +10,15 @@ jobs:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
-      - name: 📤 Upload files to server
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.REMOTE_HOST_IPV4 }}
-          username: ${{ secrets.REMOTE_HOST_USER }}
-          port: ${{ secrets.REMOTE_HOST_PORT }}
-          key: ${{ secrets.REMOTE_HOST_KEY }}
-          source: '.'   # pode ajustar, tipo './src'
-          target: '~/www/gh-action-test'
+      # - name: 📤 Upload files to server
+      #   uses: appleboy/scp-action@v0.1.7
+      #   with:
+      #     host: ${{ secrets.REMOTE_HOST_IPV4 }}
+      #     username: ${{ secrets.REMOTE_HOST_USER }}
+      #     port: ${{ secrets.REMOTE_HOST_PORT }}
+      #     key: ${{ secrets.REMOTE_HOST_KEY }}
+      #     source: '.'   # pode ajustar, tipo './src'
+      #     target: '~/www/gh-action-test'
 
       - name: ⚡ Run setup commands on server
         uses: appleboy/ssh-action@v1.0.3
@@ -29,7 +29,7 @@ jobs:
           key: ${{ secrets.REMOTE_HOST_KEY }}
           script: |
             mkdir -p ~/www/gh-action-test
-            cd ~/www/gh-action-test
-            cp ~/apps/env/web/.env.production ~/www/gh-action-test
-            cp ~/apps/env/web/.env.sentry-build-plugin ~/www/gh-action-test
+            # cd ~/www/gh-action-test
+            cp ~/apps/* ~/www/gh-action-test
+            # cp ~/apps/env/web/.env.sentry-build-plugin ~/www/gh-action-test
             echo 'Github is here!' >> README.md
