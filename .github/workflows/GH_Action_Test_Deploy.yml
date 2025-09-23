@@ -24,7 +24,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.REMOTE_HOST_IPV4 }}
-          username: ${{ secrets.REMOTE_HOST_USER }}
+          username: ${{ secrets.REMOTE_HOST_SSH_USER }}
           port: ${{ secrets.REMOTE_HOST_SSH_PORT }}
           key: ${{ secrets.REMOTE_PUBLIC_KEY }}
           script: |
