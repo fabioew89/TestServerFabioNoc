@@ -1,13 +1,11 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: testing ssh from github to remote host
 on: [push]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm install -g bats
-      - run: bats -v
+      - run: |
+          ssh {{secret.REMOTE_HOST_SSH_USER}}@{{secret.REMOTE_HOST_IPV4}} \
+              -p {{secret.REMOTE_HOST_SSH_PORT}}
+      
