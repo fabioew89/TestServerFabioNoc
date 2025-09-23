@@ -12,7 +12,7 @@ jobs:
       - name: Setup SSH key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.REMOTE_PUBLIC_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
       - name: Test SSH connection
